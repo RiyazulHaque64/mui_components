@@ -1,13 +1,14 @@
 import NotListedLocationIcon from "@mui/icons-material/NotListedLocation";
+import { LoadingButton } from "@mui/lab";
 import {
   Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
-  IconButton,
   Typography,
 } from "@mui/material";
+import { red } from "@mui/material/colors";
 
 const ConfirmDialog = ({
   open,
@@ -33,10 +34,8 @@ const ConfirmDialog = ({
         },
       }}
     >
-      <DialogTitle>
-        <IconButton>
-          <NotListedLocationIcon />
-        </IconButton>
+      <DialogTitle sx={{ textAlign: "center", py: 0 }}>
+        <NotListedLocationIcon sx={{ fontSize: "100px", color: red[500] }} />
       </DialogTitle>
       <DialogContent>
         <Typography variant="h6">{title}</Typography>
@@ -46,6 +45,9 @@ const ConfirmDialog = ({
         <Button onClick={onClose} color="primary">
           Close
         </Button>
+        <LoadingButton loading={false} variant="outlined">
+          Submit
+        </LoadingButton>
       </DialogActions>
     </Dialog>
   );
